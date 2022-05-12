@@ -1,14 +1,26 @@
-# coursera-test
+# Section 1
 Coursera test repozitory
 
-### list
+## list
 - apples
 - tomato
 - berries
 - grapes
 
-# divider
+# Section 2
+## h2
+### h3
+#### h4 
+##### h5
 
+**bold** 
+~~bold~~
+*italic*
+**bold _italic_**
+***bold italic***
+
+# Section 3
+Code example
 ```
 <head>
 	<meta charset="utf-8">
