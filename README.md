@@ -7,6 +7,8 @@ Coursera test repozitory
 - berries
 - grapes
 
+# divider
+
 ```
 <head>
 	<meta charset="utf-8">
