@@ -3,4 +3,6 @@ Coursera test repozitory
 
 ### list
 - apples
-- greens 
+- tomato
+- berries
+- grapes
