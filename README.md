@@ -3,4 +3,4 @@ Coursera test repozitory
 
 ### list
 - apples
-- bees 
+- greens 
