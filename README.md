@@ -19,6 +19,8 @@ Coursera test repozitory
 *italic*
 **bold _italic_**
 ***bold italic***
+> Bold italic
+
 
 # Section 3
 Code example
