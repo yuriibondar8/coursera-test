@@ -8,5 +8,9 @@ Coursera test repozitory
 - grapes
 
 ```
-print("Hello")
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test page</title>
+</head>
 ```
