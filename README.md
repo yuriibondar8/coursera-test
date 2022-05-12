@@ -8,5 +8,5 @@ Coursera test repozitory
 - grapes
 
 ```
-git pull
+print("Hello")
 ```
