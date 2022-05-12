@@ -6,3 +6,7 @@ Coursera test repozitory
 - tomato
 - berries
 - grapes
+
+```
+git pull
+```
