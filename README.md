@@ -31,3 +31,7 @@ Code example
 	<title>Test page</title>
 </head>
 ```
+
+```
+section 2.jpeg
+```
