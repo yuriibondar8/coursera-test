@@ -107,12 +107,6 @@ matrix(cb2, nrow = 2, byrow = TRUE)
 m <- matrix(cb2, byrow = TRUE, nrow = 2)
 cbind(m, 13:16)
 rownames(m) <- c("row1", "row2")
-
-
-
-
-
-
 m
 
 mat <- matrix(1:6, byrow = TRUE, nrow = 2)
@@ -127,10 +121,10 @@ plot(table(rpois(100, 5)), type = "b", col = "red",
     lwd = 10, 
     main = "rpois(100, lambda = 5)")
 
-
-
-
-
 x <- c(1,2,3)
 str(x)
-print("hello")
+
+
+
+
+
