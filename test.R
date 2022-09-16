@@ -1,4 +1,4 @@
-# Var example 
+# Var example
 first_var <- "Var 1"
 second_var <- 12.5
 
@@ -15,12 +15,12 @@ v2 <- c(1, 2, 3, 4)
 names(v2) <- v1
 v2
 
-v3 <- c(five=5, six=6, seven=7)
+v3 <- c(five = 5, six = 6, seven = 7)
 v3
 
 
 # Vectors -- basic stuff
-vec <- c(2,3,5,7,11,13,17,19,23,101)
+vec <- c(2, 3, 5, 7, 11, 13, 17, 19, 23, 101)
 vec[3]
 
 look.at <- 1:4
@@ -45,18 +45,18 @@ vec2 <- c("one", "two", "three")
 names(vec3) <- vec2
 vec3
 
-vec4 <- c(one=1L, two=2L, three=3L)
+vec4 <- c(one = 1L, two = 2L, three = 3L)
 vec4
 
 
 # Lists
-list1 <- list(list(list(1 , 3, 5)))
+list1 <- list(list(list(1, 3, 5)))
 str(list1)
 
 list3 <- list("a", 1L, 1.5, TRUE)
 str(list3)
 
-list2 <- list('Chicago' = 1, 'New York' = 2, 'Los Angeles' = 3)
+list2 <- list("Chicago" = 1, "New York" = 2, "Los Angeles" = 3)
 str(list2)
 list2
 
@@ -87,19 +87,19 @@ child <- c(FALSE, TRUE, TRUE, FALSE, TRUE)
 df <- data.frame(name, age, child)
 str(df)
 
-data.frame(x = c(1, 2, 3) , y = c(1.5, 5.5, 7.5))
+data.frame(x = c(1, 2, 3), y = c(1.5, 5.5, 7.5))
 
 
 # Matrices
-matrix(c(1:6), nrow=2)
-matrix(c(1:8), ncol=2)
+matrix(c(1:6), nrow = 2)
+matrix(c(1:8), ncol = 2)
 
 arr <- c(1, 2, 3, 1.5, 5.5, 7.5)
 length(arr)
 matrix(arr, nrow = 2, byrow = TRUE)
 
 cbind(arr, var = 1:6)
-rbind(arr) 
+rbind(arr)
 
 cb1 <- cbind(arr, var1 = 1:6)
 cb2 <- cbind(var2 = 1:6, var3 = 7:12)
@@ -117,11 +117,11 @@ mat
 matr <- matrix(LETTERS[1:6], byrow = TRUE, nrow = 2, dimnames = list(c("row1", "row2"), c("col1", "col2", "col3")))
 matr
 
-plot(table(rpois(100, 5)), type = "b", col = "red", 
-    lwd = 10, 
+plot(table(rpois(100, 5)), type = "b", col = "red",
+    lwd = 10,
     main = "rpois(100, lambda = 5)")
 
-x <- c(1,2,3)
+x <- c(1, 2, 3)
 str(x)
 
 
