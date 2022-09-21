@@ -23,8 +23,8 @@ v3
 vec <- c(2, 3, 5, 7, 11, 13, 17, 19, 23, 101)
 vec[3]
 
-look.at <- 1:4
-vec[look.at]
+look_at <- 1:4
+vec[look_at]
 
 length(vec)
 head(vec, 2)
@@ -123,6 +123,41 @@ plot(table(rpois(100, 5)), type = "b", col = "red",
 
 x <- c(1, 2, 3)
 str(x)
+
+
+# Basic commands
+install.packages("ggplot2") # download a package
+library("ggplot2") # install & load a package
+help("ggplot2") # package documentation
+browseVignettes("ggplot2") # guide on a package
+installed.packages() # present a list of intalled packages
+data("") # load a dataset
+
+# Pipes basics
+data("ToothGrowth")
+View(ToothGrowth)
+
+filtered_tg <- filter(ToothGrowth, dose == 0.5)
+View(filtered_tg)
+arrange(filtered_tg, len)
+
+# nested function, does the same as above
+arrange(filter(ToothGrowth, dose == 0.5), len)
+
+# pipe
+# filtered_toothgrowth <- ToothGrowth %>%
+ToothGrowth %>%
+ # filter(dose == 0.5) %>%
+ group_by(supp) %>%
+ ggplot(aes(dose, len)) +
+  geom_point(aes(colour = supp, size = len), alpha = 0.5) +
+  geom_smooth() +
+  facet_wrap(~supp) +
+  theme_bw()
+
+ # summarise(mean_len = mean(len, na.rm = TRUE), .groups = "drop")
+View(filtered_toothgrowth)
+
 
 
 
