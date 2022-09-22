@@ -12,7 +12,7 @@ WHERE
 	and field3 = 'world'; -- condition 3
 
 
-SELECT 
+SELECT
 	COLUMN_NAME(S)
 FROM
 	TABLE_NAME
