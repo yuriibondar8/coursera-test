@@ -1,3 +1,6 @@
+
+
+
 install.packages("here")
 install.packages("skimr")
 install.packages("janitor")
@@ -20,3 +23,5 @@ select(penguins, -species) # or select(!species) exclude columns from scope
 rename(penguins, island_new = island) # rename a column
 rename_with(penguins, tolower) # reformat column names
 clean_names(penguins) # trim to only characters, numbers and underscores
+
+#

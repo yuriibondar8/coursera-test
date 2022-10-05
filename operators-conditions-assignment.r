@@ -1,3 +1,6 @@
+
+
+
 # basic calculations
 quarter_1_sales <- 35657.98
 quarter_2_sales <- 43810.55

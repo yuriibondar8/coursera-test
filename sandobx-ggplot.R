@@ -1,3 +1,6 @@
+
+
+
 library(tidyverse)
 
 # Viewing data
@@ -113,10 +116,6 @@ typeof(mpg$fl)
 
 
 
-
-
-
-
 head(diamonds)
 
 ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) + geom_point()
@@ -130,3 +129,6 @@ diamonds %>%
   geom_boxplot() +
   geom_point(alpha = 0.5) +
   facet_wrap(~cut, nrow = 2, ncol = 5)
+
+
+#

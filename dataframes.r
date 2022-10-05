@@ -1,3 +1,6 @@
+
+
+
 # Diamonds dataset from tidyverse
 data("diamonds") # load dataset
 View(diamonds) # preview entire data frame
