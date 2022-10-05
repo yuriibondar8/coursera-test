@@ -157,9 +157,3 @@ ToothGrowth %>%
 
  # summarise(mean_len = mean(len, na.rm = TRUE), .groups = "drop")
 View(filtered_toothgrowth)
-
-
-
-
-
-
