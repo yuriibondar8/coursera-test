@@ -70,7 +70,8 @@ ggplot(
 ) +
  geom_step(
   data = relig_viz,
-  mapping = aes(x = income, y = count, linetype = religion)
+  mapping = aes(x = income, y = count, linetype = religion),
+  size = 1
  ) +
  facet_wrap(~religion, ncol = 2) +
  labs(
