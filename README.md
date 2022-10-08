@@ -22,4 +22,7 @@
 	"line_padding_top": 1,
 	"line_padding_bottom": 1,
 }
+	// "font_face": "SF Mono Medium",
+	// "font_face": "IBM Plex Mono Regular",
+	// "font_face": "Fira Code Light",
 ```
