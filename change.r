@@ -22,6 +22,7 @@ arrange(hotel_bookings, desc(lead_time)) # arrange() DESC
 max(hotel_bookings$lead_time)
 min(hotel_bookings$lead_time)
 mean(hotel_bookings$lead_time)
+sd(hotel_bookings$lead_time)
 
 
 # Creating new dataset with sorting by lead time
