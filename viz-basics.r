@@ -7,15 +7,24 @@
 # ggplot2, gganimate, ggridges
 # Leaflet, Highcharter, Patchwork, Plotly, Lattice, RGL, Dygraphs
 
-library(ggplot2)
-library(ggthemes)
-library(bslib)
-library(RColorBrewer)
-library(wesanderson)
+# Data
 library(palmerpenguins)
 
+# ggplot base
+library(ggplot2)
 
-# Load penguins dataset
+# Themes
+library(ggthemes)
+library(bslib)
+
+# Color pallets
+library(RColorBrewer) # display.brewer.all() -- show pallets
+library(wesanderson) # names(wes_palettes) -- show pallets
+library(ggpattern)
+# library(ggpubr) -- combine multiple plots into one
+
+
+# Load penguins dataset and clean deta
 data(penguins)
 View(penguins)
 
@@ -31,8 +40,7 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
  geom_point()
 
 
-
-
+# Geom point
 ggplot(data = penguins_clean) +
  geom_point(
   mapping = aes(x = flipper_length_mm, y = body_mass_g, colour = sex)
@@ -52,33 +60,26 @@ ggplot(data = penguins_clean) +
 # Boxplot
 ggplot(data = penguins_clean) +
  geom_boxplot(
-  mapping = aes(
-   x = species, y = flipper_length_mm, fill = species
-  )
+  mapping = aes(x = species, y = flipper_length_mm, fill = species)
  ) +
  scale_fill_brewer(name = "", palette = "Set2") +
  xlab("Species") +
  ylab("Flipper length (mm)") +
  theme_minimal()
 
+
 # Violin
 ggplot(data = penguins_clean) +
  geom_violin(
-  mapping = aes(
-   x = species,
-   y = body_mass_g,
-   fill = species
-  )
+  mapping = aes(x = species, y = body_mass_g, fill = species)
  ) +
  scale_fill_brewer(name = "", palette = "Set2") +
  xlab("Species") +
  ylab("Body mass (g)") +
  theme_minimal()
 
-# Combine
-# install.packages("ggpubr")
-# library(ggpubr)
 
+# Violin with patterns inside graph objects
 install.packages("ggpattern")
 library(ggpattern)
 
@@ -91,9 +92,6 @@ ggplot(data = penguins_clean) +
  ) +
 theme_bw()
 
-
-
-# scale_color_manual(values = wes_palette(n = 2, name = "Royal1"))
 
 
 #
