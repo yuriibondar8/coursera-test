@@ -36,7 +36,6 @@ separate(employee, "name", into = c("first_name", "last_name"), sep = " ")
 unite(employee, "id_name", id, name, sep = "-")
 
 
-
 # mutate(); transmute() functions
 view(penguins)
 glimpse(penguins)
@@ -48,5 +47,7 @@ penguins_mod <- penguins %>%
 glimpse(penguins_mod)
 View(penguins_mod)
 # transmute(bill_area_mm = bill_length_mm * bill_depth_mm) -- drop columns
+
+
 
 #

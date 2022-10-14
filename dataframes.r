@@ -12,7 +12,6 @@ colnames(diamonds) # view names of the coumns
 mutate(diamonds, carat_2 = carat * 100) # add a column to data frame
 
 
-
 # Hands on activity
 library(tidyverse)
 names <- c("Alex", "Adam", "Eve", "Annie")
@@ -31,7 +30,6 @@ fruit_ranks <- data.frame(fruits, score)
 head(fruit_ranks)
 
 
-
 # Tibbles
 as_tibble(diamonds)
 
@@ -40,11 +38,12 @@ View(mtcars)
 colnames(mtcars)
 
 
-
 # Readr package for import
 readr_example()
 cars <- read_csv("/Users/yuriibondar/Desktop/automobile_data.csv")
 spec(cars)
 colnames(cars)
+
+
 
 #
