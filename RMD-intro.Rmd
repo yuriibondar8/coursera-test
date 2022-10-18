@@ -45,14 +45,14 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 Notes: setting up my R environment by loading `tidyverse` and `palmerpenguins` packages:
 
-```{r}
+```{r loading packages}
 library(tidyverse)
 library(palmerpenguins)
 ```
 
 ## Loading and cleanig the data
 
-```{r}
+```{r preparing data}
 data(penguins)
 penguins_clean <- penguins %>%
   drop_na()
@@ -60,7 +60,7 @@ penguins_clean <- penguins %>%
 
 ## Creating scatter plot
 
-```{r}
+```{r creating scatter plot}
 ggplot(data = penguins_clean) +
   geom_point(
    mapping = aes(
