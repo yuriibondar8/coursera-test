@@ -1,0 +1,80 @@
+---
+title: "R Markdown Intro"
+author: "fade"
+date: '2022-10-18'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring following formats:
+
+-   HTML
+
+-   PDF
+
+-   MS Word
+
+For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+For more details on using R Markdown click [here](http://rmarkdown.rstudio.com).
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Penguin Plots: Practice analysis
+
+## Setting up environment
+
+Notes: setting up my R environment by loading `tidyverse` and `palmerpenguins` packages:
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Loading and cleanig the data
+
+```{r}
+data(penguins)
+penguins_clean <- penguins %>%
+  drop_na()
+```
+
+## Creating scatter plot
+
+```{r}
+ggplot(data = penguins_clean) +
+  geom_point(
+   mapping = aes(
+     x = flipper_length_mm,
+     y = body_mass_g,
+     color = sex
+   )
+  ) +
+  facet_wrap(~species) +
+  labs(
+    title = "Penguins",
+    x = "Flipper lenght (mm)",
+    y = "Body mass (g)"
+  )
+```
+
+![Bird](https://coolbutuseless.github.io/img/wingspan/wingspan.jpg)
