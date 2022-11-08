@@ -77,6 +77,34 @@ trips_clean <- trips_df %>%
 str(trips_clean)
 
 trips <- trips_clean %>% drop_na()
+glimpse(trips)
+str(trips)
+min(trips$started_at)
+max(trips$started_at)
+
+write.csv(trips, file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips.csv", row.names = FALSE)
+
+
+##############
+
+distinct(trips, member_casual)
+distinct(trips, start_station_id)
+distinct(trips, start_station_name)
+distinct(trips, end_station_id)
+distinct(trips, end_station_name)
+distinct(trips, rideable_type)
+
+
+trips_sumary <- trips %>%
+  group_by(day_of_week, member_casual) %>%
+  summarise(
+    mean_ride = mean(ride_length),
+    no_of_rides = n_distinct(ride_id)
+  )
+View(trips_sumary)
+
+trips_sumary$day_of_week <- ordered(trips_sumary$day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", 
+"Friday", "Saturday", "Sunday"))
 
 
 
