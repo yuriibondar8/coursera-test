@@ -8,6 +8,7 @@ library(tidyverse)
 library(skimr)
 library(janitor)
 
+
 # Preapring the data
 # Importing 12 datasets
 setwd("/Users/yuriibondar/Desktop/c/capstone - case 1/csv")
@@ -64,6 +65,20 @@ trips_df <- bind_rows(
  trips_2022_09
 )
 glimpse(trips_df)
+
+
+# Processing the data
+# Adding columns to original trips_df
+# Removing na and negative values
+trips_clean <- trips_df %>%
+  mutate(ride_length = ended_at - started_at) %>%
+  mutate(day_of_week = weekdays(started_at)) %>%
+  subset(ride_length > 0)
+str(trips_clean)
+
+trips <- trips_clean %>% drop_na()
+
+
 
 
 
