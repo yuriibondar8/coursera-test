@@ -7,6 +7,7 @@
 library(tidyverse)
 library(skimr)
 library(janitor)
+library(lubridate)
 
 
 # Preapring the data
@@ -76,38 +77,109 @@ trips_clean <- trips_df %>%
   subset(ride_length > 0)
 str(trips_clean)
 
+# Reamoving epty values and checking dates
 trips <- trips_clean %>% drop_na()
 glimpse(trips)
 str(trips)
 min(trips$started_at)
 max(trips$started_at)
 
-write.csv(trips, file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips.csv", row.names = FALSE)
+# Saving clean df on disk
+write.csv(
+  trips,
+  file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips.csv",
+  row.names = FALSE
+)
 
 
-##############
-
-distinct(trips, member_casual)
-distinct(trips, start_station_id)
-distinct(trips, start_station_name)
-distinct(trips, end_station_id)
-distinct(trips, end_station_name)
-distinct(trips, rideable_type)
-
-
+# Analyzing the data
+# Creating summary df with important stats
 trips_sumary <- trips %>%
-  group_by(day_of_week, member_casual) %>%
+  group_by(day_of_week, member_casual, rideable_type) %>%
   summarise(
-    mean_ride = mean(ride_length),
-    no_of_rides = n_distinct(ride_id)
+    Tmean = mean(ride_length),
+    Tmedian = median(ride_length),
+    Nrides = n_distinct(ride_id)
   )
 View(trips_sumary)
 
-trips_sumary$day_of_week <- ordered(trips_sumary$day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", 
-"Friday", "Saturday", "Sunday"))
+# Sorting summary by day of the week
+trips_sumary$day_of_week <- ordered(
+  trips_sumary$day_of_week, levels = c(
+    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+  )
+)
 
+write.csv(
+  trips_sumary,
+  file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips_sumary.csv",
+  row.names = FALSE
+)
 
+# Exploring data stats
+mean(trips$ride_length)
+median(trips$ride_length)
+max(trips$ride_length)
+min(trips$ride_length)
 
+aggregate(
+  trips$ride_length ~ trips$member_casual + trips$day_of_week,
+  FUN = median
+)
+
+all_trips <- trips %>%
+  mutate(weekday = wday(started_at, label = TRUE)) %>%
+  group_by(member_casual, weekday) %>%
+  summarise(
+    number_of_rides = n_distinct(ride_id),
+    average_duration = mean(ride_length)
+  ) %>%
+  arrange(member_casual, weekday)
+
+# Creating data visualizations
+# Number of riders by rider type
+ggplot(data = all_trips) +
+  geom_col(
+    mapping = aes(
+      x = weekday,
+      y = number_of_rides,
+      fill = member_casual
+    ),
+    position = "dodge"
+  )
+
+ggplot(data = trips_sumary) +
+  geom_col(
+    mapping = aes(
+      x = day_of_week,
+      y = Nrides,
+      fill = member_casual
+    ),
+    position = "dodge"
+  ) +
+  facet_wrap(~rideable_type)
+
+# Average duration
+ggplot(data = all_trips) +
+  geom_col(
+    mapping = aes(
+      x = weekday,
+      y = average_duration,
+      fill = member_casual
+    ),
+    position = "dodge"
+  )
+
+ggplot(data = trips_sumary) +
+  geom_col(
+    mapping = aes(
+      x = day_of_week,
+      y = Tmedian,
+      fill = member_casual
+    ),
+    position = "dodge"
+  ) +
+  facet_wrap(~rideable_type)
 
 
 
