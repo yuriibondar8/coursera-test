@@ -224,6 +224,8 @@ typeof(trips_clean_wip$ride_length)
 trips_clean_wip <- trips_clean_wip %>%
   mutate(
     month = month(started_at, label = TRUE),
+    weekday = wday(started_at, label = TRUE),
+    start_hour = hour(started_at),
     duration_min = as.integer(ride_length / 60)
   )
 
