@@ -183,4 +183,95 @@ ggplot(data = trips_sumary) +
 
 
 
+
+
+
+
+
+
+trips_clean_wip <- trips_clean %>%
+  drop_na() %>%
+  mutate(
+    day_of_week = wday(started_at, label = TRUE),
+    start_date = format(as.POSIXct(started_at), format = "%Y-%m-%d"),
+    start_time = format(as.POSIXct(started_at), format = "%H:%M:%S"),
+    end_date = format(as.POSIXct(ended_at), format = "%Y-%m-%d"),
+    end_time = format(as.POSIXct(ended_at), format = "%H:%M:%S"),
+    trip_duration = format(as.duration(ended_at - started_at)),
+    duration_sec = ended_at - started_at
+  )
+View(trips_clean_wip)
+str(trips_clean_wip)
+sapply(trips_clean_wip, class)
+
+write.csv(
+  trips_clean_wip,
+  file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips_clean_wip.csv", # nolint
+  row.names = FALSE
+)
+
+trips_clean_wip$start_date <- as.Date(
+  trips_clean_wip$start_date,
+  format = "%Y-%m-%d"
+)
+trips_clean_wip$end_time <- hms(trips_clean_wip$end_time)
+typeof(trips_clean_wip$duration_min)
+typeof(trips_clean_wip$duration_sec)
+typeof(trips_clean_wip$ride_length)
+
+
+
+trips_clean_wip <- trips_clean_wip %>%
+  mutate(
+    month = month(started_at, label = TRUE),
+    duration_min = as.integer(ride_length / 60)
+  )
+
+trips_clean_wip <- trips_clean_wip %>%
+  filter(
+    duration_min > 0
+  )
+
+
+write.csv(
+  trips_clean_wip,
+  file = "/Users/yuriibondar/Desktop/c/capstone - case 1/csv/trips_clean.csv", # nolint
+  row.names = FALSE
+)
+
+
+
+# 5,094,974
+# 5,013,662
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
