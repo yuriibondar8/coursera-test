@@ -8,6 +8,7 @@ library(tidyverse)
 library(skimr)
 library(janitor)
 library(lubridate)
+library(hydroTSM)
 
 
 # Preapring the data
@@ -223,6 +224,7 @@ typeof(trips_clean_wip$ride_length)
 
 trips_clean_wip <- trips_clean_wip %>%
   mutate(
+    season = time2season(start_date, out.fmt = "seasons"),
     month = month(started_at, label = TRUE),
     weekday = wday(started_at, label = TRUE),
     start_hour = hour(started_at),
